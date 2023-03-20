@@ -17,11 +17,46 @@
       lib = nixpkgs.lib;
       entry = import ./entry { inherit inputs home-manager lib; };
     in {
-      nixosConfigurations = {
+
+    
+      nixosConfigurations = 
+      let
+          # Shared config between both the liveimage and real system
+          #aarch64Base = {
+          #  system = "aarch64-linux";
+          #  modules = with self.nixosModules; [
+          #    ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
+          #    home-manager.nixosModules.home-manager
+          #    traits.overlay
+          #    traits.base
+          #    services.openssh
+          #  ];
+          #};
+          x86_64Base = {
+            system = "x86_64-linux";
+            modules = with self.nixosModules; [
+              ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
+              #home-manager.nixosModules.home-manager
+              #traits.overlay
+              #traits.base
+              services.openssh
+            ];
+          };
+        in
+      
+      {
+
         lenovo16 = let
           # if aarch64, change to aarch64-linux
           # check with "uname -m" command
-          system = "x86_64-linux";
+          #system = "x86_64-linux";
+          inherit (x86_64Base) system;
+          modules = x86_64Base.modules ++ [
+              #traits.workstation
+              #traits.gnome
+              #traits.jetbrains
+              #users.hernad
+          ];
           pkgs = nixpkgs.legacyPackages.${system};
         in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system pkgs; });
 
