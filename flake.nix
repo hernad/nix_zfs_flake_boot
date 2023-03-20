@@ -69,6 +69,7 @@
 
       nixosModules = {
         services.openssh = ./services/openssh.nix;
-      }
+      };
+      
     };
 }
