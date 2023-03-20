@@ -146,6 +146,7 @@
         vcsodeWithExtension
         #viber
         #appimage-run
+        xorg.xkbcomp
         viberFetch
   ];
 
