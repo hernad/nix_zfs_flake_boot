@@ -43,6 +43,7 @@
       };
 
     in [
+        vim
         remmina
         patchelf
         silver-searcher
@@ -122,7 +123,7 @@
 
     environment.shellAliases = { };
     environment.variables = {
-      EDITOR = "${pkgs.neovimConfigured}/bin/nvim";
+      EDITOR = "${pkgs.vim}/bin/vim";
     };
     environment.pathsToLink = [
       "/share/nix-direnv"
