@@ -1,7 +1,7 @@
 /*
   A trait for all boxxen
 */
-{ fetchurl, config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   config = {
@@ -16,6 +16,8 @@
 
   environment.systemPackages = with pkgs;
     let
+      inherit (pkgs) fetchurl;
+
       vcsodeWithExtension = vscode-with-extensions.override {
         # When the extension is already available in the default extensions set.
         vscodeExtensions = with vscode-extensions; [
@@ -42,7 +44,7 @@
         ];
       };
 
-      viberFetch = viber.overrideAttrs( attrPrev: attrOld: {
+      viberFetch = viber.overrideAttrs( attrOld: {
         src = fetchurl {
             url = "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb";
             sha256 = "0000";
