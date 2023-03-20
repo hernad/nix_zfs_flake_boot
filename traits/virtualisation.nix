@@ -47,7 +47,10 @@
       i2c-tools
     ];
 
-    users.mutableUsers = false;
+    #radi ovoga ne mogu da se logiram
+    #users.mutableUsers = false;
+    users.mutableUsers = true;
+
 
     powerManagement.cpuFreqGovernor = "ondemand";
 
