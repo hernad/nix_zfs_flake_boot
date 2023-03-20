@@ -74,6 +74,7 @@
               libwebp
               snappy
               xorg.libxshmfence
+              lcms2
               nspr
               nss
               openssl_1_1
