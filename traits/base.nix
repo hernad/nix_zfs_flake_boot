@@ -47,8 +47,7 @@
       viberFetch = viber.overrideAttrs( attrOld: {
         src = fetchurl {
             url = "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb";
-            sha256 = "c7b9661272e58b1e47005ce7524ba42ba5e9da14ca027e775347af148c503ddd";
-        };
+            sha256 = "sha256-tjyvf1qjzznPO7YPreebo/CoqAn3fR/dfKuwT/Bm7/c=";
       });
 
     in [
