@@ -76,6 +76,7 @@
               xorg.libxshmfence
               lcms2
               xorg.libxkbfile
+              zstd
               nspr
               nss
               openssl_1_1
