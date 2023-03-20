@@ -31,6 +31,7 @@
           system = "x86_64-linux";
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [
+              ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
               traits.base
               traits.gnome
               traits.jetbrains
