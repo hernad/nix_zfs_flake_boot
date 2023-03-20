@@ -9,7 +9,7 @@
   mkHost = { entry }:
     let
       system = entry.boot.system;
-      baseModules = entry.boot.modules;
+      baseModules = inputs.baseModules;
       pkgs = inputs.nixpkgs.legacyPackages.${system};
     in lib.nixosSystem {
       inherit system;
