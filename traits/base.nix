@@ -73,6 +73,7 @@
               libxslt
               libwebp
               snappy
+              xorg.libxshmfence
               nspr
               nss
               openssl_1_1
