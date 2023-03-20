@@ -58,7 +58,7 @@
               #users.hernad
           ];
           pkgs = nixpkgs.legacyPackages.${system};
-        in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system modules pkgs; });
+        in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system pkgs; });
 
 
         #tieling = let
@@ -70,6 +70,6 @@
       nixosModules = {
         services.openssh = ./services/openssh.nix;
       };
-      
+
     };
 }
