@@ -48,6 +48,7 @@
         src = fetchurl {
             url = "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb";
             sha256 = "sha256-tjyvf1qjzznPO7YPreebo/CoqAn3fR/dfKuwT/Bm7/c=";
+        }
       });
 
     in [
