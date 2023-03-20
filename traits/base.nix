@@ -71,6 +71,7 @@
               libxkbcommon
               libxml2
               libxslt
+              libwebp
               nspr
               nss
               openssl_1_1
