@@ -15,7 +15,7 @@
               #home-manager.nixosModules.home-manager
               #traits.overlay
               #traits.base
-              self.nixosModules.services.openssh
+              (import ./services/openssh.nix);
           ];
   };
 
@@ -43,9 +43,6 @@
         #in entry.lib.mkHost (import ./hosts/tieling { inherit system pkgs; });
       };
 
-      nixosModules = {
-        services.openssh = ./services/openssh.nix;
-      };
 
     };
 }
