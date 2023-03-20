@@ -1,7 +1,7 @@
 { 
   inputs, 
   lib, 
-  #home-manager, 
+  home-manager, 
   ... 
 }: 
 
@@ -16,11 +16,11 @@
       modules = [
         ../modules
         (import ../configuration.nix { inherit entry inputs pkgs lib; })
-        #home-manager.nixosModules.home-manager
-        #{
-        #  home-manager.useGlobalPkgs = true;
-        #  home-manager.useUserPackages = true;
-        #}
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+        }
       ] ++ baseModules;
     };
 }

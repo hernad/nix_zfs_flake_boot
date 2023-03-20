@@ -6,7 +6,9 @@
   system.configurationRevision = if (inputs.self ? rev) then
     inputs.self.rev
   else
-    throw "refuse to build: git tree is dirty";
+    #throw "refuse to build: git tree is dirty";
+    "work";
+    
   system.stateVersion = "22.11";
 
   imports =
