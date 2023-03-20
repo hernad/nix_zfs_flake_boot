@@ -6,6 +6,7 @@
 
 { 
   system,
+  modules,
   pkgs, 
   ... 
 }: 
@@ -13,7 +14,7 @@
 {
   entry = {
     boot = {
-      inherit system;
+      inherit system modules;
       devNodes = "/dev/";
       bootDevices = [ 
         "nvme0n1" 

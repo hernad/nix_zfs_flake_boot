@@ -11,12 +11,7 @@
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    baseModules = [
-              #home-manager.nixosModules.home-manager
-              #traits.overlay
-              #traits.base
-              (import ./services/openssh.nix)
-          ];
+
   };
 
   outputs = { self, nixpkgs, home-manager }@inputs:
@@ -26,7 +21,8 @@
     in {
 
     
-      nixosConfigurations = 
+      nixosConfigurations =
+      with self.nixosModules; { 
       {
 
         lenovo16 = let
@@ -34,13 +30,20 @@
           # check with "uname -m" command
           system = "x86_64-linux";
           pkgs = nixpkgs.legacyPackages.${system};
-        in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system pkgs; });
+          modules = [
+              services.openssh
+          ];
+        in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system modules pkgs; });
 
 
         #tieling = let
         #  system = "aarch64-linux";
         #  pkgs = nixpkgs.legacyPackages.${system};
         #in entry.lib.mkHost (import ./hosts/tieling { inherit system pkgs; });
+      };
+
+      nixosModules = {
+        services.openssh = ./services/openssh.nix;
       };
 
 
