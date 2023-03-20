@@ -31,6 +31,9 @@
           system = "x86_64-linux";
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [
+              traits.base
+              traits.gnome
+              traits.jetbrains
               services.openssh
           ];
         in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system modules pkgs; });
@@ -44,6 +47,10 @@
 
       nixosModules = {
         services.openssh = ./services/openssh.nix;
+        traits.base = ./traits/base.nix;
+        traits.gnome = ./traits/gnome.nix;
+        traits.jetbrains = ./traits/jetbrains.nix;
+        traits.sourceBuild = ./traits/source-build.nix;
       };
 
 
