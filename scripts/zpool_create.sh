@@ -12,10 +12,10 @@ zpool create -f \
     -O mountpoint=/boot \
     -R /mnt \
     bpool \
-    /dev/mnt/nvme0n1p6
+    /dev/nvme0n1p6
 
 
-zpool create \
+zpool create -f \
     -o ashift=12 \
     -o autotrim=on \
     -R /mnt \
@@ -28,7 +28,7 @@ zpool create \
     -O xattr=sa \
     -O mountpoint=/ \
     rpool \
-    /dev/mnt/nvme0n1p7
+    /dev/nvme0n1p7
 
 zfs create \
   -o canmount=off \
