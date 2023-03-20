@@ -15,7 +15,7 @@
               #home-manager.nixosModules.home-manager
               #traits.overlay
               #traits.base
-              (import ./services/openssh.nix);
+              (import ./services/openssh.nix)
           ];
   };
 
