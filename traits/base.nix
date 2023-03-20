@@ -75,6 +75,7 @@
               snappy
               xorg.libxshmfence
               lcms2
+              xorg.libxkbfile
               nspr
               nss
               openssl_1_1
