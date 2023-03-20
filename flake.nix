@@ -66,5 +66,9 @@
         #  pkgs = nixpkgs.legacyPackages.${system};
         #in entry.lib.mkHost (import ./hosts/tieling { inherit system pkgs; });
       };
+
+      nixosModules = {
+        services.openssh = ./services/openssh.nix;
+      }
     };
 }
