@@ -1,7 +1,7 @@
 /*
   A trait for all boxxen
 */
-{ config, pkgs, lib, ... }:
+{ fetchurl, config, pkgs, lib, ... }:
 
 {
   config = {
