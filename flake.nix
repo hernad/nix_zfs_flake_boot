@@ -58,7 +58,7 @@
               #users.hernad
           ];
           pkgs = nixpkgs.legacyPackages.${system};
-        in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system pkgs; });
+        in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system modules pkgs; });
 
 
         #tieling = let
