@@ -14,16 +14,19 @@ mount -t zfs  rpool/nixos/home /mnt/home
 # nix
 mkdir -pv /mnt/nix
 zfs create -o mountpoint=legacy rpool/nixos/nix
+mount -t zfs  rpool/nixos/nix /mnt/nix
 
 # var/log
 zfs create -o mountpoint=legacy  rpool/nixos/var
 zfs create -o mountpoint=legacy rpool/nixos/var/log
 
+# boot
 zfs create -o mountpoint=none bpool/nixos
 zfs create -o mountpoint=legacy bpool/nixos/root
 mkdir -pv /mnt/boot
 mount -t zfs bpool/nixos/root /mnt/boot
 
+# empty
 zfs create -o mountpoint=legacy rpool/nixos/empty
 zfs snapshot rpool/nixos/empty@start
 
