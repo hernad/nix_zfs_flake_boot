@@ -78,6 +78,7 @@
               xorg.libxkbfile
               zstd
               libkrb5
+              brotli
               nspr
               nss
               openssl_1_1
