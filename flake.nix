@@ -36,6 +36,7 @@
               traits.gnome
               traits.workstation
               traits.jetbrains
+              traits.virtualisation
               services.openssh
               users.hernad
           ];
