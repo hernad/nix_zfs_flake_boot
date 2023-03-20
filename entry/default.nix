@@ -1,12 +1,12 @@
 { 
   inputs, 
   lib, 
-  #home-manager, 
+  home-manager, 
   ... 
 }: 
 
 {
   lib = import ./lib.nix { 
-    inherit inputs lib; #home-manager; 
+    inherit inputs lib home-manager; 
   };
 }
