@@ -32,8 +32,7 @@
         lenovo16 = let
           # if aarch64, change to aarch64-linux
           # check with "uname -m" command
-          #system = "x86_64-linux";
-          inherit (x86_64Base) system;
+          system = "x86_64-linux";
           pkgs = nixpkgs.legacyPackages.${system};
         in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system pkgs; });
 
