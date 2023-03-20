@@ -46,7 +46,7 @@
     programs.dconf.enable = true;
 
     fileSystems."/usr/share/X11" = {
-     device = "${pkgs.xkeyboard-config}/share/X11";
+     device = "${pkgs.xkeyboard_config}/share/X11";
      options = [ "bind" ];
     };
   };
