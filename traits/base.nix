@@ -42,10 +42,12 @@
         ];
       };
 
-      viber_src = fetchurl {
-        url = "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb";
-        sha = "0000";
-      }
+      viberFetch = viber.overrideAttrs( attrPrev: attrOld: {
+        src = fetchurl {
+            url = "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb";
+            sha = "0000";
+        };
+      });
 
     in [
         vim
@@ -86,9 +88,7 @@
         vcsodeWithExtension
         #viber
         #appimage-run
-        viber.override {
-          src = viber_src;
-        }
+        viberFetch
   ];
 
     #environment.systemPackages = with pkgs; [
