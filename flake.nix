@@ -34,6 +34,7 @@
               #({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
               traits.base
               traits.gnome
+              traits.workstation
               traits.jetbrains
               services.openssh
               users.hernad
@@ -50,6 +51,7 @@
       nixosModules = {
         services.openssh = ./services/openssh.nix;
         traits.base = ./traits/base.nix;
+        traits.workstation = ./traits/workstation.nix;
         traits.gnome = ./traits/gnome.nix;
         traits.jetbrains = ./traits/jetbrains.nix;
         traits.sourceBuild = ./traits/source-build.nix;
