@@ -42,6 +42,11 @@
         ];
       };
 
+      viber_src = fetchurl {
+        url = "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb";
+        sha = "0000";
+      }
+
     in [
         vim
         remmina
@@ -80,7 +85,10 @@
         simple-http-server
         vcsodeWithExtension
         #viber
-        appimage-run
+        #appimage-run
+        viber.override {
+          src = viber_src;
+        }
   ];
 
     #environment.systemPackages = with pkgs; [
