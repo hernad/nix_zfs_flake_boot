@@ -150,7 +150,7 @@
     libreoffice
     dbeaver
     google-chrome
-    #viber
+    viber
   ] ++ (if stdenv.isx86_64 then [
     # kicad
     #chromium
