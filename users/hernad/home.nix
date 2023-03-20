@@ -141,7 +141,6 @@
     # gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.space-bar
     firefox
-    #neovimConfigured
     vim
     inkscape
     gimp
@@ -151,7 +150,7 @@
     libreoffice
     dbeaver
     google-chrome
-    #viber
+    viber
   ] ++ (if stdenv.isx86_64 then [
     # kicad
     #chromium
