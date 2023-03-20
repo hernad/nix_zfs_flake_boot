@@ -6,6 +6,11 @@
 {
   config = {
     services.xserver.enable = true;
+    services.xserver = {
+      layout = "us,bs";
+      xkbVariant = "workman,";
+      xkbOptions = "grp:win_space_toggle";
+    }
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.displayManager.autoLogin.enable = false;
     services.xserver.desktopManager.gnome.enable = true;
