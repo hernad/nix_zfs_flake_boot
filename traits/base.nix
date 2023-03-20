@@ -77,7 +77,7 @@
               lcms2
               xorg.libxkbfile
               zstd
-              libgssglue
+              libkrb5
               nspr
               nss
               openssl_1_1
