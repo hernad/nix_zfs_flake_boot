@@ -22,7 +22,7 @@
 
     
       nixosConfigurations =
-      with self.nixosModules; { 
+      with self.nixosModules;
       {
 
         lenovo16 = let
