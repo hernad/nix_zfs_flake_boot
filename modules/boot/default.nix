@@ -59,6 +59,11 @@ in {
       type = types.str;
       default = "x86_64-linux";
     };
+    modules = mkOption {
+      description = "default modules";
+      type = types.listOf types.str;
+      default = [];
+    };
   };
   config = mkIf (cfg.enable) (mkMerge [
     {
