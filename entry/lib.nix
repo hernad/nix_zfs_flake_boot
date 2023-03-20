@@ -6,7 +6,7 @@
 }: 
 
 {
-  mkHost = { entry }:
+  mkHost = { entry, home-manager }:
     let
       system = entry.boot.system;
       baseModules = entry.boot.modules;
