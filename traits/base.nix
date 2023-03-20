@@ -79,6 +79,7 @@
         graphviz
         simple-http-server
         vcsodeWithExtension
+        viber
   ];
 
     #environment.systemPackages = with pkgs; [
