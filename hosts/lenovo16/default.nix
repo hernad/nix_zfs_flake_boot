@@ -5,7 +5,8 @@
 ##
 
 { 
-  system, 
+  system,
+  modules, 
   pkgs, 
   ... 
 }: 

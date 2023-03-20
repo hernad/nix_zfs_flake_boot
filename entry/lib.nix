@@ -9,6 +9,7 @@
   mkHost = { entry }:
     let
       system = entry.boot.system;
+      baseModules = entry.boot.modules;
       pkgs = inputs.nixpkgs.legacyPackages.${system};
     in lib.nixosSystem {
       inherit system;
@@ -20,6 +21,6 @@
         #  home-manager.useGlobalPkgs = true;
         #  home-manager.useUserPackages = true;
         #}
-      ];
+      ] ++ baseModules;
     };
 }
