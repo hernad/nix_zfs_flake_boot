@@ -72,6 +72,7 @@
               libxml2
               libxslt
               libwebp
+              snappy
               nspr
               nss
               openssl_1_1
