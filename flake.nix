@@ -35,6 +35,7 @@
               traits.gnome
               traits.jetbrains
               services.openssh
+              users.hernad
           ];
         in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system modules pkgs; });
 
@@ -51,6 +52,7 @@
         traits.gnome = ./traits/gnome.nix;
         traits.jetbrains = ./traits/jetbrains.nix;
         traits.sourceBuild = ./traits/source-build.nix;
+        users.hernad = ./users/hernad;
       };
 
 
