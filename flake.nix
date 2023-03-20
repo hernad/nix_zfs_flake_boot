@@ -54,6 +54,7 @@
         traits.workstation = ./traits/workstation.nix;
         traits.gnome = ./traits/gnome.nix;
         traits.jetbrains = ./traits/jetbrains.nix;
+        traits.virtualisation = ./traits/virtualisation.nix;
         traits.sourceBuild = ./traits/source-build.nix;
         users.hernad = ./users/hernad;
       };
