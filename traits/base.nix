@@ -115,9 +115,10 @@
         direnv
         nix-direnv
         git
-        python310
-        python310Packages.pip
-        ansible
+        #python310Full
+        #python310Packages.pip
+        #python310Packages.setuptools
+        #ansible
         jq
         fzf
         ripgrep
