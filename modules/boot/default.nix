@@ -118,7 +118,7 @@ in {
       networking = {
         hostId = cfg.hostId;
         hostName = cfg.hostName;
-      }
+      };
       nix.settings.experimental-features = mkDefault [ "nix-command" "flakes" ];
       programs.git.enable = true;
       boot = {
