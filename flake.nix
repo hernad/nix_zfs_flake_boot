@@ -17,7 +17,7 @@
   outputs = { self, nixpkgs, home-manager }@inputs:
     let
       lib = nixpkgs.lib;
-      entry = import ./entry { inherit inputs config lib home-manager; };
+      entry = import ./entry { inherit inputs lib home-manager; };
     in {
 
     

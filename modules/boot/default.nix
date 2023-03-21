@@ -115,7 +115,10 @@ in {
         swapPartitions =
           (map (diskName: diskName + cfg.partitionScheme.swap) cfg.bootDevices);
       };
-      networking.hostId = cfg.hostId;
+      networking = {
+        hostId = cfg.hostId;
+        hostName = cfg.hostName;
+      }
       nix.settings.experimental-features = mkDefault [ "nix-command" "flakes" ];
       programs.git.enable = true;
       boot = {
