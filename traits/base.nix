@@ -116,6 +116,7 @@
         nix-direnv
         git
         python310
+        python310Packages.pip
         ansible
         jq
         fzf
