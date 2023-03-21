@@ -1,5 +1,6 @@
 { 
-  inputs, 
+  inputs,
+  config, 
   lib, 
   home-manager, 
   ... 
@@ -23,6 +24,6 @@
           home-manager.useUserPackages = true;
         }
       ] ++ baseModules;
-      networking.hostName = hostName;
+      config.networking.hostName = hostName;
     };
 }
