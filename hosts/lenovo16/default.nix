@@ -21,6 +21,7 @@
       ];
       immutable = false;
       hostId = "38bdc3d4";
+      hostName = "lenovo16";
       availableKernelModules = [
         "ahci" # for sata drive
         "nvme" # for nvme drive
@@ -34,10 +35,6 @@
         biosBoot = "p9";
       }; 
     };
-    
-    networking = {
-      hostName = "lenovo16";
-    };
-    
+
   };
 }

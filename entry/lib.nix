@@ -8,7 +8,7 @@
 {
   mkHost = { entry }:
     let
-      hostName = entry.networking.hostName;
+      hostName = entry.boot.hostName;
       system = entry.boot.system;
       baseModules = entry.boot.modules;
       pkgs = inputs.nixpkgs.legacyPackages.${system};

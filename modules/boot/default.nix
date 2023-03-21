@@ -29,6 +29,11 @@ in {
       type = types.str;
       default = "4e98920d";
     };
+    hostName = mkOption {
+      description = "Set hostName";
+      type = types.str;
+      default = "nixos";
+    };
     bootDevices = mkOption {
       description = "Specify boot devices";
       type = types.nonEmptyListOf types.str;
