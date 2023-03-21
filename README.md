@@ -9,6 +9,8 @@
 
     sudo nixos-install --flake .#lenovo16
 
+    # ++++++   ne zaboraviti uraditi ovo!! ++++
+    # ako se ne uradi, import zpool-ova neće biti uspješan
     sudo umount -Rl /mnt
     sudo zpool export -a
 
