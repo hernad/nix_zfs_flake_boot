@@ -34,5 +34,10 @@
         biosBoot = "p9";
       }; 
     };
+    
+    networking = {
+      hostName = "lenovo16";
+    };
+    
   };
 }

@@ -8,6 +8,7 @@
 {
   mkHost = { entry }:
     let
+      hostName = entry.networking.hostName;
       system = entry.boot.system;
       baseModules = entry.boot.modules;
       pkgs = inputs.nixpkgs.legacyPackages.${system};
@@ -22,5 +23,6 @@
           home-manager.useUserPackages = true;
         }
       ] ++ baseModules;
+      networking.hostName = hostName;
     };
 }
