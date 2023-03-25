@@ -18,7 +18,7 @@
     services.xserver.desktopManager.gnome.enable = true;
     environment.gnome.excludePackages = (with pkgs; [
       gnome-photos
-      gnome-tour
+      #gnome-tour
     ]) ++ (with pkgs.gnome; [
       cheese # webcam tool
       gnome-music

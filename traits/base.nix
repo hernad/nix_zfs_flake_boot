@@ -33,6 +33,8 @@
           #denoland.vscode-deno
           dotjoshjohnson.xml
           ms-python.python
+          ms-vscode.cpptools-themes
+          Equinusocio.vsc-community-material-theme
         ]
         # Concise version from the vscode market place when not available in the default set.
         ++ vscode-utils.extensionsFromVscodeMarketplace [
