@@ -33,8 +33,8 @@
           #denoland.vscode-deno
           dotjoshjohnson.xml
           ms-python.python
-          ms-vscode.cpptools-themes
-          Equinusocio.vsc-community-material-theme
+          #ms-vscode.cpptools-themes
+          #Equinusocio.vsc-community-material-theme
         ]
         # Concise version from the vscode market place when not available in the default set.
         ++ vscode-utils.extensionsFromVscodeMarketplace [
@@ -43,6 +43,18 @@
             publisher = "formulahendry";
             version = "0.12.0";
             sha256 = "43681cb9c946ecd2d1f351e32a3ff4445d2333912a7b6bd931ba6869ba7fa2c8";
+          }
+          {
+            name = "cpptools-themes";
+            publisher = "ms-vscode";
+            version = "2.0.0";
+            sha256 = "sha256-YWA5UsA+cgvI66uB9d9smwghmsqf3vZPFNpSCK+DJxc=";
+          }
+          {
+            name = "vsc-community-material-theme";
+            publisher = "Equinusocio";
+            version = "1.4.6";
+            sha256 = "sha256-DVgyE9CAB7m8VzupUKkYIu3fk63UfE+cqoJbrUbdZGw=";
           }
         ];
       };
