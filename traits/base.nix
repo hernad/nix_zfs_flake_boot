@@ -56,6 +56,12 @@
             version = "1.4.6";
             sha256 = "sha256-DVgyE9CAB7m8VzupUKkYIu3fk63UfE+cqoJbrUbdZGw=";
           }
+          {
+            name = "noctis";
+            publisher = "liviuschera";
+            version = "10.40.0";
+            sha256 = "sha256-DVgyE9CAB7m8VzupUKkYIu3fk63UfE+cqoJbrUbdZGw=";
+          }
         ];
       };
 
