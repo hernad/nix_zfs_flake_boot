@@ -1,7 +1,7 @@
 /*
   A trait for configurations which are most definitely machines
 */
-{ config, pkgs, ... }:
+{ config, pkgs, users, ... }:
 
 {
   config = {
@@ -90,6 +90,9 @@
     virtualisation.libvirtd.qemu.runAsRoot = false;
     virtualisation.spiceUSBRedirection.enable = true; # Note that this allows users arbitrary access to USB devices. 
     virtualisation.podman.enable = true;
+
+    virtualisation.docker.enable = true;
+    users.users.hernad.extraGroups = [ "docker" ];
 
     
   };
