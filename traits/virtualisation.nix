@@ -71,7 +71,7 @@
       pulse.enable = true;
     };
     
-    #services.tailscale.enable = true;
+    services.tailscale.enable = true;
 
     security.rtkit.enable = true;
 
