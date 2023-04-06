@@ -46,6 +46,24 @@
           ];
         in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system modules pkgs; });
 
+        xps13 = let
+          # if aarch64, change to aarch64-linux
+          # check with "uname -m" command
+          system = "x86_64-linux";
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+              #({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
+              traits.base
+              traits.gnome
+              traits.workstation
+              #traits.jetbrains
+              traits.virtualisation
+              services.openssh
+              users.bjasko
+              #nur.nixosModules.nur
+          ];
+        in entry.lib.mkHost (import ./hosts/xps13 { inherit system modules pkgs; });
+
 
         #tieling = let
         #  system = "aarch64-linux";
