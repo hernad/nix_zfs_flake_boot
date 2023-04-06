@@ -80,6 +80,7 @@
         traits.virtualisation = ./traits/virtualisation.nix;
         traits.sourceBuild = ./traits/source-build.nix;
         users.hernad = ./users/hernad;
+        users.bjasko = ./users/bjasko;
       };
 
 
