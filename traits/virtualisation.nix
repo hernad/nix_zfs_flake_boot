@@ -99,7 +99,7 @@
     #virtualisation.lxd.enable = true;
     #virtualisation.vswitch.enable = true;
     #users.users.hernad.extraGroups = [ "docker" "lxd" ];
-    users.users.hernad.extraGroups = [ "docker" ];
+    
 
     
 
