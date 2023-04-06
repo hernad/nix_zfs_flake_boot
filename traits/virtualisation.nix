@@ -96,7 +96,10 @@
       enable = true;
       setSocketVariable = true;
     };
-    users.users.hernad.extraGroups = [ "docker" ];
+    virtualisation.lxd.enable = true;
+    users.users.hernad.extraGroups = [ "docker" "lxd" ];
+
+    
 
   };
 }

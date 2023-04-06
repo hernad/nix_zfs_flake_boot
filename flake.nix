@@ -7,20 +7,23 @@
 
     # unstable
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager.url = "github:nix-community/home-manager";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    
+    #nur.url = github:nix-community/NUR;
 
 
   };
 
+  #outputs = { self, nixpkgs, home-manager, nur }@inputs:
   outputs = { self, nixpkgs, home-manager }@inputs:
     let
       lib = nixpkgs.lib;
       entry = import ./entry { inherit inputs lib home-manager; };
     in {
 
-    
       nixosConfigurations =
       with self.nixosModules;
       {
@@ -39,6 +42,7 @@
               traits.virtualisation
               services.openssh
               users.hernad
+              #nur.nixosModules.nur
           ];
         in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system modules pkgs; });
 
