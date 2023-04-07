@@ -17,8 +17,8 @@
     services.xserver.displayManager.autoLogin.enable = false;
     services.xserver.desktopManager.gnome.enable = true;
     environment.gnome.excludePackages = (with pkgs; [
-      gnome-photos
-      #gnome-tour
+      #gnome-photos
+      gnome-tour
     ]) ++ (with pkgs.gnome; [
       cheese # webcam tool
       gnome-music
@@ -38,6 +38,7 @@
     environment.systemPackages = with pkgs; [
       gnome.gnome-tweaks
       gnome.gnome-characters
+      gnome.gnome-screenshot
       #gnome.gnome-terminal
     ];
 
