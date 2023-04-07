@@ -35,11 +35,12 @@
       gnome-initial-setup
     ]);
 
-    environment.systemPackages = with pkgs; [
-      gnome.gnome-tweaks
-      gnome.gnome-characters
-      gnome.gnome-screenshot
-      #gnome.gnome-terminal
+    environment.systemPackages = with pkgs.gnome; [
+      gnome-tweaks
+      gnome-characters
+      gnome-screenshot
+      gnome-control-center
+      #gnome-terminal
     ];
 
     services.gnome.gnome-keyring.enable = true;
