@@ -8,7 +8,7 @@ with lib;
 let cfg = config.entry.boot;
 
 in {
-  imports = [ ./grub-for-arm64/grub.nix ];
+  #imports = [ ./grub-for-arm64/grub.nix ];
   options.entry.boot = {
     enable = mkOption {
       description = "Enable root on ZFS support";
