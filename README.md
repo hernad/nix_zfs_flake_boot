@@ -23,9 +23,15 @@ Based on:
 
     nix flake clone github:hernad/nix_zfs_flake_boot --dest flake
     cd flake
-    installDisk=/dev/nvme0n1
-    # first disk partition NixOS
-    diskPart=4
+
+    # 1. podesiti scripts/part.sh
+    ## 1.1 installDisk=/dev/nvme0n1
+    ## first disk partition NixOS
+    #  1.2 diskPart=4
+
+    # 2. podesiti hosts/yoga15/default.nix
+    # partitionScheme
+
 
 2. create partitions, zpool:
 
