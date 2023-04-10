@@ -7,6 +7,8 @@ fi
 
 source ./scripts/part.sh
 
+umount ${installDisk}p${P_EFI}
+
 echo zpool create bpool on ${installDisk}p${P_BOOT}
 zpool create -f \
     -o compatibility=grub2 \
