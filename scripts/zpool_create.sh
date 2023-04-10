@@ -7,7 +7,8 @@ fi
 
 source ./scripts/part.sh
 
-umount ${installDisk}p${P_EFI}
+umount /mnt/boot/efis/${installDisk##*/}p${P_EFI}
+rm -rf /mnt/*
 
 echo zpool create bpool on ${installDisk}p${P_BOOT}
 zpool create -f \
