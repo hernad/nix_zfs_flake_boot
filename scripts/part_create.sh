@@ -5,7 +5,7 @@ if [ ! -f ./scripts/part.sh ]; then
    exit 1
 fi
 
-. /scripts/part.sh
+source ./scripts/part.sh
 
 
 echo P_EFI=$P_EFI
