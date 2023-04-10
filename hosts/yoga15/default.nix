@@ -16,6 +16,7 @@
     boot = {
       inherit system modules;
       devNodes = "/dev/";
+      enable = true;
       bootDevices = [ 
         "nvme0n1" 
       ];
