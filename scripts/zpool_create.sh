@@ -77,8 +77,9 @@ mount -t vfat ${installDisk}p${P_EFI} /mnt/boot/efis/${installDisk##*/}p${P_EFI}
 
 echo =============== results ================================
 zpool list -v
-
-mount | grep vfat
-
 zfs list
+echo ================= mounts ==================
+mount | grep vfat
+mount | grep zfs
+
 
