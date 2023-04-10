@@ -140,6 +140,7 @@ in {
           };
           generationsDir.copyKernels = true;
           grub = {
+            systemd-boot.enable = true;
             devices = (map (diskName: cfg.devNodes + diskName) cfg.bootDevices);
             efiInstallAsRemovable = true;
             version = 2;
@@ -172,11 +173,5 @@ in {
     #(mkIf (cfg.system != "aarch64-linux") { 
     #  boot.loader.grub.enable = true; 
     #})
-    { 
-      boot.loader = {
-         grub.enable = true; 
-         systemd-boot.enable = true;
-      };   
-    }
   ]);
 }
