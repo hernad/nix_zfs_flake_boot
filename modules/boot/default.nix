@@ -143,7 +143,7 @@ in {
             devices = (map (diskName: cfg.devNodes + diskName) cfg.bootDevices);
             efiInstallAsRemovable = true;
             version = 2;
-            enable = mkDefault false;
+            enable = true;
             copyKernels = true;
             efiSupport = true;
             zfsSupport = true;
@@ -153,6 +153,7 @@ in {
               '') (tail cfg.bootDevices)));
           };
         };
+
       };
     }
     #(mkIf (cfg.system == "aarch64-linux") {
@@ -171,8 +172,5 @@ in {
     #(mkIf (cfg.system != "aarch64-linux") { 
     #  boot.loader.grub.enable = true; 
     #})
-    (mkIf (cfg.system != "aarch64-linux") { 
-      boot.loader.grub.enable = true; 
-    })
   ]);
 }

@@ -36,6 +36,10 @@ Based on:
     nix flake clone github:hernad/nix_zfs_flake_boot --dest flake
     cd flake
     nixos-install --flake .#yoga15
+    umount -Rl /mnt
+    zpool export -a
+
+
 
 
 ## Install zfs root
