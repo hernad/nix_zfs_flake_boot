@@ -15,11 +15,27 @@ Based on:
     sudo dd if=isoImage/iso/nixos-23.05.20230319.60c1d71-x86_64-linux.iso of=/dev/sda bs=4M conv=fsync
 
 
+## setup create partition
+
+### scripts/part.sh
+
+1. set install disk, first NixOS partition:
+
+    installDisk=/dev/nvme0n1
+    # first disk partition NixOS
+    diskPart=4
+
+2. create partitions, zpool:
+
+    bash scripts/part_create.sh
+    bash scripts/zpool_create.sh
+
+
 ## nixos live
 
     nix flake clone github:hernad/nix_zfs_flake_boot --dest flake
     cd flake
-    # 
+    nixos-install --flake .#yoga15
 
 
 ## Install zfs root
