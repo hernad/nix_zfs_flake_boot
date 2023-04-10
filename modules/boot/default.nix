@@ -171,5 +171,8 @@ in {
     #(mkIf (cfg.system != "aarch64-linux") { 
     #  boot.loader.grub.enable = true; 
     #})
+    (mkIf (cfg.system != "aarch64-linux") { 
+      boot.loader.grub.enable = true; 
+    })
   ]);
 }
