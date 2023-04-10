@@ -28,11 +28,10 @@
         "uas" # for external usb drive
       ];
       partitionScheme = {
-        efiBoot = "p5";
-        bootPool = "p6";
-        rootPool = "p7";
-        swap = "p8";
-        biosBoot = "p9";
+        efiBoot = "p4";
+        bootPool = "p5";
+        rootPool = "p6";
+        swap = "p7";
       }; 
     };
 
