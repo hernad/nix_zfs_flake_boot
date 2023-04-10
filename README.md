@@ -1,4 +1,20 @@
-# Install zfs root
+# Nix laptop 
+
+Based on:
+
+   https://github.com/Hoverbear-Consulting/flake
+
+
+## recovery image
+
+    nix build .#nixosConfigurations.x86_64IsoImage.config.system.build.isoImage --out-link isoImage
+    ARCHITECT_USB=/dev/null
+    umount $ARCHITECT_USB
+    sudo cp -vi isoImage/iso/*.iso $ARCHITECT_USB
+
+
+
+## Install zfs root
 
     nix flake clone github:hernad/nix_zfs_flake_boot --dest hernad
     cd hernad
