@@ -32,7 +32,7 @@
         bootPool = "p6";
         rootPool = "p7";
         swap = "p8";
-        biosBoot = "p9";
+        #biosBoot = "p9";
       }; 
     };
 

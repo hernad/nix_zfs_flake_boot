@@ -132,6 +132,7 @@ in {
           forceImportRoot = false;
         };
         loader = {
+          systemd-boot.enable = true;
           efi = {
             canTouchEfiVariables = false;
             efiSysMountPoint = with builtins;
