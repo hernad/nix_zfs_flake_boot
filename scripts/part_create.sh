@@ -16,7 +16,7 @@ sgdisk -n${P_SWAP}:0:+${INST_PARTSIZE_SWAP}G -t${P_SWAP}:8200 $installDisk
 
 sgdisk -n${P_ROOT}:0:0 -t${P_ROOT}:BF00 $installDisk
 
-#sgdisk -a1 -n${P_BIOS}:24K:+1000K -t${P_BIOS}:EF02 $installDisk
+sgdisk -a1 -n${P_BIOS}:24K:+1000K -t${P_BIOS}:EF02 $installDisk
 
 sync && udevadm settle && sleep 3
 

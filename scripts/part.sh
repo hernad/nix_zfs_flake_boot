@@ -20,8 +20,8 @@ diskPart=$((diskPart+1))
 P_SWAP=$diskPart
 
 
-#diskPart=$((diskPart+1))
-#P_BIOS=$diskPart
+diskPart=$((diskPart+1))
+P_BIOS=$diskPart
 
 echo installDisk=$installDisk
 echo "SWAP SIZE (GB)=$INST_PARTSIZE_SWAP"

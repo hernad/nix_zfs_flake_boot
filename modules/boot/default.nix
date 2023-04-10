@@ -139,7 +139,7 @@ in {
                 + cfg.partitionScheme.efiBoot);
           };
           generationsDir.copyKernels = true;
-          systemd-boot.enable = true;
+          #systemd-boot.enable = true;
           grub = {
             devices = (map (diskName: cfg.devNodes + diskName) cfg.bootDevices);
             efiInstallAsRemovable = true;
