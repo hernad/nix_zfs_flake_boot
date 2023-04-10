@@ -15,7 +15,7 @@ Based on:
     sudo dd if=isoImage/iso/nixos-23.05.20230319.60c1d71-x86_64-linux.iso of=/dev/sda bs=4M conv=fsync
 
 
-## ssh to live image
+## ssh login from developer workstation to live ISO
 
    sudo passwd root
    ssh root@IP_ADDRESS 
@@ -23,7 +23,7 @@ Based on:
 ## setup partitions, zpools, mounts
 
 
-1.. part.sh: define install disk, first NixOS partition:
+1. part.sh: define install disk, first NixOS partition:
 
     nix flake clone github:hernad/nix_zfs_flake_boot --dest flake
     cd flake
