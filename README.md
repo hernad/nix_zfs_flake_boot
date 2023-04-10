@@ -55,3 +55,13 @@ Based on:
     umount -Rl /mnt
     zpool export -a
 </pre>
+
+## Update system inside NixOS
+
+<pre>
+    nix flake clone github:hernad/nix_zfs_flake_boot --dest nix_zfs_flake_boot
+    cd nix_zfs_flake_boot
+    sudo nixos-rebuild --flake .#yoga15
+</pre>
+
+
