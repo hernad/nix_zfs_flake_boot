@@ -155,21 +155,21 @@ in {
         };
       };
     }
-    (mkIf (cfg.system == "aarch64-linux") {
-      entry.aarch64Grub = {
-        devices = [ "nodev" ];
-        efiInstallAsRemovable = true;
-        # used patched grub for arm64
-        enable = true;
-        version = 2;
-        copyKernels = true;
-        efiSupport = true;
-        zfsSupport = true;
-        extraInstallCommands = config.boot.loader.grub.extraInstallCommands;
-      };
-    })
-    (mkIf (cfg.system != "aarch64-linux") { 
-      boot.loader.grub.enable = true; 
-    })
+    #(mkIf (cfg.system == "aarch64-linux") {
+    #  entry.aarch64Grub = {
+    #    devices = [ "nodev" ];
+    #    efiInstallAsRemovable = true;
+    #    # used patched grub for arm64
+    #    enable = true;
+    #    version = 2;
+    #    copyKernels = true;
+    #    efiSupport = true;
+    #    zfsSupport = true;
+    #    extraInstallCommands = config.boot.loader.grub.extraInstallCommands;
+    #  };
+    #})
+    #(mkIf (cfg.system != "aarch64-linux") { 
+    #  boot.loader.grub.enable = true; 
+    #})
   ]);
 }
