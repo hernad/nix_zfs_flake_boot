@@ -50,12 +50,18 @@ zfs create \
 
 zfs create -o mountpoint=legacy     rpool/nixos/root
 mount -t zfs rpool/nixos/root /mnt/
+
 zfs create -o mountpoint=legacy rpool/nixos/home
 mkdir /mnt/home
 mount -t zfs  rpool/nixos/home /mnt/home
 zfs create -o mountpoint=legacy rpool/nixos/var
 zfs create -o mountpoint=legacy rpool/nixos/var/log
 zfs create -o mountpoint=legacy rpool/nixos/nix
+
+mkdir -pv /mnt/var/log
+mount -t zfs rpool/nixos/var/log /mnt/var/log
+mkdir -pv /mnt/nix
+mount -t zfs rpool/nixos/nix /mnt/nix
 
 zfs create -o mountpoint=none bpool/nixos
 zfs create -o mountpoint=legacy bpool/nixos/root
