@@ -7,6 +7,8 @@ fi
 
 source ./scripts/part.sh
 
+exit 0
+
 zpool create -f \
     -o compatibility=grub2 \
     -o ashift=12 \

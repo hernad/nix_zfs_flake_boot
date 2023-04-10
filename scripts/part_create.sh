@@ -8,12 +8,6 @@ fi
 source ./scripts/part.sh
 
 
-echo P_EFI=$P_EFI
-echo P_BOOT=$P_BOOT
-echo P_ROOT=$P_ROOT
-echo P_SWAP=$P_SWAP
-
-
 sgdisk -n${P_EFI}:0:+1G -t${P_EFI}:EF00 $installDisk
 
 sgdisk -n${P_BOOT}:0:+4G -t${P_BOOT}:BE00 $installDisk
