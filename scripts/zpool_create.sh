@@ -7,6 +7,7 @@ fi
 
 source ./scripts/part.sh
 
+echo zpool create bpool on ${installDisk}p${P_BOOT}
 zpool create -f \
     -o compatibility=grub2 \
     -o ashift=12 \
@@ -23,6 +24,7 @@ zpool create -f \
     bpool \
     ${installDisk}p${P_BOOT}
 
+echo zpool create rpool on ${installDisk}p${P_ROOT}
 zpool create -f \
     -o ashift=12 \
     -o autotrim=on \
