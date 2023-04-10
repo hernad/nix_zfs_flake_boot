@@ -9,8 +9,10 @@ Based on:
 
     nix build .#nixosConfigurations.x86_64IsoImage.config.system.build.isoImage --out-link isoImage
     ARCHITECT_USB=/dev/null
-    umount $ARCHITECT_USB
-    sudo cp -vi isoImage/iso/*.iso $ARCHITECT_USB
+    sudo umount /dev/sda*
+    #umount $ARCHITECT_USB
+    #sudo cp -vi isoImage/iso/*.iso $ARCHITECT_USB
+    sudo dd if=isoImage/iso/nixos-23.05.20230319.60c1d71-x86_64-linux.iso of=/dev/sda bs=4M conv=fsync
 
 
 
