@@ -15,11 +15,15 @@ Based on:
     sudo dd if=isoImage/iso/nixos-23.05.20230319.60c1d71-x86_64-linux.iso of=/dev/sda bs=4M conv=fsync
 
 
-## setup create partition
+## ssh to live image
 
-### scripts/part.sh
+   sudo passwd root
+   ssh root@IP_ADDRESS 
 
-1. set install disk, first NixOS partition:
+## setup partitions, zpools, mounts
+
+
+1.. part.sh: define install disk, first NixOS partition:
 
     nix flake clone github:hernad/nix_zfs_flake_boot --dest flake
     cd flake
@@ -33,35 +37,17 @@ Based on:
     # partitionScheme
 
 
-2. create partitions, zpool:
+2. create partitions, zpool, mount zfs, vfat /mnt, /mnt/boot: 
 
-    
     bash scripts/part_create.sh
     bash scripts/zpool_create.sh
 
 
-## nixos live
+## install nixos on /mnt
 
     nixos-install --flake .#yoga15
     umount -Rl /mnt
     zpool export -a
 
 
-
-
-## Install zfs root
-
-    nix flake clone github:hernad/nix_zfs_flake_boot --dest hernad
-    cd hernad
-
-    # sudo zpool import -f bpool
-    # sudo zpool import -f rpool
-    # sudo bash scripts/mount_zfs.sh
-
-    sudo nixos-install --flake .#lenovo16
-
-    # ++++++   ne zaboraviti uraditi ovo!! ++++
-    # ako se ne uradi, import zpool-ova neće biti uspješan
-    sudo umount -Rl /mnt
-    sudo zpool export -a
 
