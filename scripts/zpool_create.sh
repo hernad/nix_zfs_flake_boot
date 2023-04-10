@@ -53,11 +53,13 @@ mount -t zfs rpool/nixos/root /mnt/
 zfs create -o mountpoint=legacy rpool/nixos/home
 mkdir /mnt/home
 mount -t zfs  rpool/nixos/home /mnt/home
-zfs create -o mountpoint=legacy  rpool/nixos/var
-zfs create -o mountpoint=legacy rpool/nixos/var/lib
+zfs create -o mountpoint=legacy rpool/nixos/var
 zfs create -o mountpoint=legacy rpool/nixos/var/log
+zfs create -o mountpoint=legacy rpool/nixos/nix
+
 zfs create -o mountpoint=none bpool/nixos
 zfs create -o mountpoint=legacy bpool/nixos/root
+
 mkdir /mnt/boot
 mount -t zfs bpool/nixos/root /mnt/boot
 zfs create -o mountpoint=legacy rpool/nixos/empty
@@ -67,6 +69,10 @@ mkfs.vfat -n EFI ${installDisk}p${P_EFI}
 mkdir -p /mnt/boot/efis/${installDisk##*/}p${P_EFI}
 mount -t vfat ${installDisk}p${P_EFI} /mnt/boot/efis/${installDisk##*/}p${P_EFI}
 
+echo =============== results ================================
 zpool list -v
 
 mount | grep vfat
+
+zfs list
+
