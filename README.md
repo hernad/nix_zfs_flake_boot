@@ -1,9 +1,8 @@
-# Nix laptop 
+# NixOS laptop 
 
 Based on:
 
    https://github.com/Hoverbear-Consulting/flake
-
 
 ## Create recovery image
 
@@ -56,5 +55,3 @@ Based on:
     umount -Rl /mnt
     zpool export -a
 </pre>
-
-
