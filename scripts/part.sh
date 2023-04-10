@@ -20,3 +20,8 @@ P_SWAP=$diskPart
 
 #diskPart=$((diskPart+1))
 #P_BIOS=$diskPart
+
+echo P_EFI=$P_EFI
+echo P_BOOT=$P_BOOT
+echo P_ROOT=$P_ROOT
+echo P_SWAP=$P_SWAP
