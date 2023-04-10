@@ -21,20 +21,21 @@ Based on:
 
 1. set install disk, first NixOS partition:
 
+    nix flake clone github:hernad/nix_zfs_flake_boot --dest flake
+    cd flake
     installDisk=/dev/nvme0n1
     # first disk partition NixOS
     diskPart=4
 
 2. create partitions, zpool:
 
+    
     bash scripts/part_create.sh
     bash scripts/zpool_create.sh
 
 
 ## nixos live
 
-    nix flake clone github:hernad/nix_zfs_flake_boot --dest flake
-    cd flake
     nixos-install --flake .#yoga15
     umount -Rl /mnt
     zpool export -a
