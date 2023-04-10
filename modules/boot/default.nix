@@ -132,7 +132,6 @@ in {
           forceImportRoot = false;
         };
         loader = {
-          systemd-boot.enable = true;
           efi = {
             canTouchEfiVariables = false;
             efiSysMountPoint = with builtins;
@@ -173,5 +172,8 @@ in {
     #(mkIf (cfg.system != "aarch64-linux") { 
     #  boot.loader.grub.enable = true; 
     #})
+    { 
+      boot.loader.grub.enable = true; 
+    }
   ]);
 }
