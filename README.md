@@ -5,7 +5,7 @@ Based on:
    https://github.com/Hoverbear-Consulting/flake
 
 
-## recovery image
+## Create recovery image
 
     nix build .#nixosConfigurations.x86_64IsoImage.config.system.build.isoImage --out-link isoImage
     ARCHITECT_USB=/dev/null
@@ -14,6 +14,12 @@ Based on:
     #sudo cp -vi isoImage/iso/*.iso $ARCHITECT_USB
     sudo dd if=isoImage/iso/nixos-23.05.20230319.60c1d71-x86_64-linux.iso of=/dev/sda bs=4M conv=fsync
 
+
+## nixos live
+
+    nix flake clone github:hernad/nix_zfs_flake_boot --dest flake
+    cd flake
+    # 
 
 
 ## Install zfs root
