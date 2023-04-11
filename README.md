@@ -4,6 +4,8 @@ Based on:
 
    https://github.com/Hoverbear-Consulting/flake
 
+   https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
+
 ## Create recovery image
 
 <pre>
