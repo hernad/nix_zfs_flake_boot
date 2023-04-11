@@ -92,10 +92,11 @@
     virtualisation.podman.enable = true;
 
     virtualisation.docker.enable = true;
-    virtualisation.docker.rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+    #virtualisation.docker.rootless = {
+    #  enable = true;
+    #  setSocketVariable = true;
+    #};
+
     #virtualisation.lxd.enable = true;
     #virtualisation.vswitch.enable = true;
     #users.users.hernad.extraGroups = [ "docker" "lxd" ];
