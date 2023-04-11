@@ -122,6 +122,11 @@
       panel-sizes = "{\"0\":64}"; # 32, 48, 64, 96
     };
 
+    "org/gnome/desktop/peripherals/touchpad" = {
+      tap-to-click = true;
+    };
+  
+
     #"org/gnome/desktop/background" = {
     #  picture-uri = "file://${./saturn.jpg}";
     #  picture-uri-dark = "file://${./saturn.jpg}";

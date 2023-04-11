@@ -4,7 +4,13 @@ Based on:
 
    https://github.com/Hoverbear-Consulting/flake
 
-   https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
+
+## gnome settings
+
+https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
+
+    dconf watch /
+
 
 ## Create recovery image
 
@@ -63,7 +69,7 @@ Based on:
 <pre>
     nix flake clone github:hernad/nix_zfs_flake_boot --dest nix_zfs_flake_boot
     cd nix_zfs_flake_boot
-    sudo nixos-rebuild --flake .#yoga15
+    sudo nixos-rebuild --flake .#yoga15 switch
 </pre>
 
 
