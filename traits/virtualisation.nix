@@ -4,6 +4,12 @@
 { config, pkgs, users, ... }:
 
 {
+
+
+  imports = [
+      ../hosts/lenovo16/networking.nix
+  ];
+  
   config = {
     boot.kernel.sysctl = {
       # TCP Fast Open (TFO)
@@ -59,7 +65,8 @@
     #networking.firewall.enable = true;
     
     # For libvirt: https://releases.nixos.org/nix-dev/2016-January/019069.html
-    networking.firewall.checkReversePath = false;
+    #networking.firewall.checkReversePath = false;
+
 
     programs.nm-applet.enable = true;
 

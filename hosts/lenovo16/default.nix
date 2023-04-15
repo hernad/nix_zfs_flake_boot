@@ -33,7 +33,8 @@
         rootPool = "p7";
         swap = "p8";
         #biosBoot = "p9";
-      }; 
+      };
+ 
     };
 
   };
