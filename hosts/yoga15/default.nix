@@ -1,6 +1,6 @@
 ##
 ##
-##  per-host configuration for lenovo16
+##  per-host configuration for yoga15
 ##
 ##
 

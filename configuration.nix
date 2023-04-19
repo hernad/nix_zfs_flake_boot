@@ -1,4 +1,6 @@
-{ entry, inputs, pkgs, lib, ... }: {
+{ entry, inputs, pkgs, lib, nur-no-pkgs, ... }: 
+
+{
   # load module config to here
   inherit entry;
   # Let 'nixos-version --json' know about the Git revision
@@ -23,5 +25,7 @@
   environment.systemPackages = with pkgs; [
       htop
       postgresql
+      openvswitch
+      nur-no-pkgs.repos.iagocq.parprouted
    ];
 }

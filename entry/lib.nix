@@ -1,7 +1,8 @@
 { 
   inputs,
   lib, 
-  home-manager, 
+  home-manager,
+  nur-no-pkgs,
   ... 
 }: 
 
@@ -16,7 +17,7 @@
       inherit system;
       modules = [
         ../modules
-        (import ../configuration.nix { inherit entry inputs pkgs lib; })
+        (import ../configuration.nix { inherit entry inputs pkgs lib nur-no-pkgs; })
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

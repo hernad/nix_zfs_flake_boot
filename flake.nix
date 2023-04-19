@@ -12,16 +12,22 @@
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
-    #nur.url = github:nix-community/NUR;
+    nur.url = github:nix-community/NUR;
 
 
   };
 
-  #outputs = { self, nixpkgs, home-manager, nur }@inputs:
-  outputs = { self, nixpkgs, home-manager }@inputs:
+  outputs = { self, nixpkgs, home-manager, nur }@inputs:
+  #outputs = { self, nixpkgs, home-manager }@inputs:
     let
       lib = nixpkgs.lib;
-      entry = import ./entry { inherit inputs lib home-manager; };
+
+      system = "x86_64-linux";
+      nur-no-pkgs = import inputs.nur {
+          nurpkgs = import nixpkgs { inherit pkgs system; };
+      };
+      
+      entry = import ./entry { inherit inputs lib home-manager nur-no-pkgs; };
       supportedSystems = [ 
           "x86_64-linux" 
           #"aarch64-linux" 
@@ -123,7 +129,7 @@
                 traits.virtualisation
                 services.openssh
                 users.hernad
-                #nur.nixosModules.nur
+                nur.nixosModules.nur
             ];
           in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system modules pkgs; });
 
