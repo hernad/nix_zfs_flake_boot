@@ -173,6 +173,7 @@
         viberFetch
         nixos-generators
         parprouted
+        test-shell
   ];
 
     #environment.systemPackages = with pkgs; [

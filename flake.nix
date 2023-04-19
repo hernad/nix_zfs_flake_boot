@@ -41,8 +41,8 @@
       overlays.default = final: prev: {
         #neovimConfigured = final.callPackage ./packages/neovimConfigured { };
         #fix-vscode = final.callPackage ./packages/fix-vscode { };
-        #parprouted = final.callPackage ./packages/parprouted { };
-        test=shell = final.callPackage ./packages/test-shell {};
+        parprouted = final.callPackage ./packages/parprouted { };
+        test-shell = final.callPackage ./packages/test-shell {};
         
       };
 
@@ -56,7 +56,7 @@
             };
           in
           {
-            inherit (pkgs) test-shell;
+            inherit (pkgs) test-shell parprouted;
   
             # Excluded from overlay deliberately to avoid people accidently importing it.
             #unsafe-bootstrap = pkgs.callPackage ./packages/unsafe-bootstrap { };
@@ -128,6 +128,7 @@
             pkgs = nixpkgs.legacyPackages.${system};
             modules = [
                 #({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
+                traits.overlay
                 traits.base
                 traits.gnome
                 traits.workstation
@@ -146,6 +147,7 @@
             pkgs = nixpkgs.legacyPackages.${system};
             modules = [
                 #({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
+                traits.overlay
                 traits.base
                 traits.gnome
                 traits.workstation
@@ -164,6 +166,7 @@
             pkgs = nixpkgs.legacyPackages.${system};
             modules = [
                 #({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
+                traits.overlay
                 traits.base
                 traits.gnome
                 traits.workstation
