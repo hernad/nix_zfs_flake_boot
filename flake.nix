@@ -12,7 +12,7 @@
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
-    nur.url = github:nix-community/NUR;
+    #nur.url = github:nix-community/NUR;
 
 
   };
@@ -22,12 +22,8 @@
     let
       lib = nixpkgs.lib;
 
-      system = "x86_64-linux";
-      nur-no-pkgs = import inputs.nur {
-          nurpkgs = import nixpkgs { inherit pkgs system; };
-      };
-      
-      entry = import ./entry { inherit inputs lib home-manager nur-no-pkgs; };
+    
+      entry = import ./entry { inherit inputs lib home-manager; };
       supportedSystems = [ 
           "x86_64-linux" 
           #"aarch64-linux" 
@@ -36,9 +32,18 @@
 
     in {
 
+      #defaultPackage.x86_64-linux =
+      #  # Notice the reference to nixpkgs here.
+      #  with import nixpkgs { system = "x86_64-linux"; };
+      #  import ./parprouted;
+      #
+
       overlays.default = final: prev: {
         #neovimConfigured = final.callPackage ./packages/neovimConfigured { };
         #fix-vscode = final.callPackage ./packages/fix-vscode { };
+        #parprouted = final.callPackage ./packages/parprouted { };
+        test=shell = final.callPackage ./packages/test-shell {};
+        
       };
 
       packages = forAllSystems
@@ -51,11 +56,12 @@
             };
           in
           {
-            #inherit (pkgs) neovimConfigured fix-vscode;
-
+            inherit (pkgs) test-shell;
+  
             # Excluded from overlay deliberately to avoid people accidently importing it.
             #unsafe-bootstrap = pkgs.callPackage ./packages/unsafe-bootstrap { };
           });
+
 
       devShells = forAllSystems
           (system:
@@ -129,7 +135,7 @@
                 traits.virtualisation
                 services.openssh
                 users.hernad
-                nur.nixosModules.nur
+                #nur.nixosModules.nur
             ];
           in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system modules pkgs; });
 

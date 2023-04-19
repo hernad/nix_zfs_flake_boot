@@ -1,13 +1,12 @@
 { 
   inputs,
   lib, 
-  home-manager,
-  nur-no-pkgs, 
+  home-manager, 
   ... 
 }: 
 
 {
   lib = import ./lib.nix { 
-    inherit inputs lib home-manager nur-no-pkgs; 
+    inherit inputs lib home-manager; 
   };
 }

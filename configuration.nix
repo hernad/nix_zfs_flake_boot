@@ -1,4 +1,4 @@
-{ entry, inputs, pkgs, lib, nur-no-pkgs, ... }: 
+{ entry, inputs, pkgs, lib, ... }: 
 
 {
   # load module config to here
@@ -26,6 +26,5 @@
       htop
       postgresql
       openvswitch
-      nur-no-pkgs.repos.iagocq.parprouted
    ];
 }

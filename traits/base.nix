@@ -172,6 +172,7 @@
         xorg.xkbcomp
         viberFetch
         nixos-generators
+        parprouted
   ];
 
     #environment.systemPackages = with pkgs; [
