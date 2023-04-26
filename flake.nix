@@ -137,6 +137,7 @@
                 services.openssh
                 users.hernad
                 #nur.nixosModules.nur
+                services.paperless
             ];
           in entry.lib.mkHost (import ./hosts/lenovo16 { inherit system modules pkgs; });
 
@@ -186,6 +187,7 @@
 
       nixosModules = {
         services.openssh = ./services/openssh.nix;
+        services.paperless = ./services/paperless.nix;
         traits.base = ./traits/base.nix;
         traits.workstation = ./traits/workstation.nix;
         traits.gnome = ./traits/gnome.nix;
