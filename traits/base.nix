@@ -66,11 +66,43 @@
         ];
       };
 
+      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/instant-messengers/viber/default.nix
+
+      
       viberFetch = viber.overrideAttrs( attrOld: {
+        version = "16.1.0.999";
+
         src = fetchurl {
             url = "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb";
             sha256 = "sha256-tjyvf1qjzznPO7YPreebo/CoqAn3fR/dfKuwT/Bm7/c=";
           };
+
+
+
+        installPhase = ''
+            dpkg-deb -x $src $out
+            mkdir -p $out/bin
+            # Soothe nix-build "suspicions"
+            chmod -R g-w $out
+            for file in $(find $out -type f \( -perm /0111 -o -name \*.so\* \) ); do
+              patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" "$file" || true
+              patchelf --set-rpath $libPath:$out/opt/viber/lib $file || true
+            done
+            # qt.conf is not working, so override everything using environment variables
+            wrapProgram $out/opt/viber/Viber \
+              --set QT_PLUGIN_PATH "$out/opt/viber/plugins" \
+              --set QT_XKB_CONFIG_ROOT "${xorg.xkeyboardconfig}/share/X11/xkb" \
+              --set QTCOMPOSE "${xorg.libX11.out}/share/X11/locale" \
+              --set QML2_IMPORT_PATH "$out/opt/viber/qml" \
+              --set QT_STYLE_OVERRIDE ""
+            ln -s $out/opt/viber/Viber $out/bin/viber
+            mv $out/usr/share $out/share
+            rm -rf $out/usr
+            # Fix the desktop link
+            substituteInPlace $out/share/applications/viber.desktop \
+              --replace /opt/viber/Viber $out/opt/viber/Viber \
+              --replace /usr/share/ $out/share/
+          '';
 
         libPath = lib.makeLibraryPath [
               alsa-lib
