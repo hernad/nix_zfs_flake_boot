@@ -73,3 +73,10 @@ https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
 </pre>
 
 
+## Update packages verzija
+
+
+    sudo nix flake update
+    git commit -am "flake.lock" update
+    scripts/rebuild.sh lenovo16
+
