@@ -6,7 +6,7 @@
     services.openssh.settings.passwordAuthentication = false;
     services.openssh.settings.permitRootLogin = lib.mkForce "yes";
 
-    networking.firewall.allowedTCPPorts = [ 22 ];
+    networking.firewall.allowedTCPPorts = [ 22 58080 ];
     networking.firewall.allowedUDPPorts = [ 22 ];
 
     #services.openssh.hostKeys = [
