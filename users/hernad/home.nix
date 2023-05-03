@@ -243,17 +243,19 @@
 
  
   
-  programs.fish.enable = true;
-  programs.fish.shellInit = ''
-    function fish_greeting
-      ${pkgs.neofetch}/bin/neofetch --config ${../../config/neofetch/config}
-    end
-  '';
-  programs.fish.interactiveShellInit = ''
-    source "${pkgs.fzf}/share/fzf/key-bindings.fish"
-    ${pkgs.direnv}/bin/direnv hook fish | source
-    ${pkgs.starship}/bin/starship init fish | source
-  '';
+  programs.fish = {
+     enable = true;
+     shellInit = ''
+      function fish_greeting
+        ${pkgs.neofetch}/bin/neofetch --config ${../../config/neofetch/config}
+      end
+     '';
+     interactiveShellInit = ''
+       source "${pkgs.fzf}/share/fzf/key-bindings.fish"
+       ${pkgs.direnv}/bin/direnv hook fish | source
+       ${pkgs.starship}/bin/starship init fish | source
+     '';
+  };
 
   xdg.configFile."libvirt/qemu.conf".text = ''
     nvram = ["/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd"]
