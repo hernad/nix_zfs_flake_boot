@@ -157,7 +157,6 @@
               xorg.xcbutilkeysyms
               xorg.xcbutilrenderutil
               xorg.xcbutilwm
-              disnix
           ];  
       });
 
@@ -207,6 +206,7 @@
         nixos-generators
         parprouted
         test-shell
+        disnix
   ];
 
     #environment.systemPackages = with pkgs; [
