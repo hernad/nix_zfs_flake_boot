@@ -157,6 +157,7 @@
               xorg.xcbutilkeysyms
               xorg.xcbutilrenderutil
               xorg.xcbutilwm
+              disnix
           ];  
       });
 
