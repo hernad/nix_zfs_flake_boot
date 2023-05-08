@@ -207,6 +207,7 @@
         parprouted
         test-shell
         disnix
+        graphviz
   ];
 
     #environment.systemPackages = with pkgs; [
