@@ -12,11 +12,21 @@
     "work";
     
 
-
   nix.settings.trusted-users = [
     "hernad"
     "root"
   ];
+
+  # nix-info -m
+  # - system: `"x86_64-linux"`
+  # - host os: `Linux 6.2.13, NixOS, 23.05 (Stoat), 23.05.20230502.1a411f2`
+  # - multi-user?: `yes`
+  # - sandbox: `relaxed`
+  # - version: `nix-env (Nix) 2.13.3`
+  # - channels(root): `"nixos"`
+  # - channels(hernad): `"nixos"`
+  # - nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixos`
+
 
 
   system.stateVersion = "22.11";
