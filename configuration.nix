@@ -11,6 +11,14 @@
     #throw "refuse to build: git tree is dirty";
     "work";
     
+
+
+  nix.settings.trusted-users = [
+    "hernad"
+    "root"
+  ];
+
+
   system.stateVersion = "22.11";
 
   imports =
@@ -25,6 +33,14 @@
   environment.systemPackages = with pkgs; [
       htop
       postgresql
-      openvswitch
+      #openvswitch
    ];
+
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+   enable = true;
+   pinentryFlavor = "curses";
+   enableSSHSupport = true;
+  };
+
 }
