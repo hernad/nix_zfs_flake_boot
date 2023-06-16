@@ -75,8 +75,26 @@ https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
 
 ## Update packages verzija
 
-
+<pre>
     sudo nix flake update
     git commit -am "flake.lock" update
     scripts/rebuild.sh lenovo16
+</pre>
+
+## trenutno stanje
+
+<pre>
+❯ nix flake metadata
+
+warning: Git tree '/home/hernad/nix_zfs_flake_boot' is dirty
+Resolved URL:  git+file:///home/hernad/nix_zfs_flake_boot
+Locked URL:    git+file:///home/hernad/nix_zfs_flake_boot
+Path:          /nix/store/rysif6lfyy6l0nc578gfs3rjh54kpf9w-source
+Last modified: 2023-06-16 11:17:07
+Inputs:
+├───home-manager: github:nix-community/home-manager/ea2f17615e31783ace1271a3325e9cac27c3b4d8
+│   └───nixpkgs follows input 'nixpkgs'
+├───nixpkgs: github:nixos/nixpkgs/0eeebd64de89e4163f4d3cf34ffe925a5cf67a05
+└───nur: github:nix-community/NUR/6f1156df74875c31b154b584867a0c57196cdb9b
+</pre>
 
