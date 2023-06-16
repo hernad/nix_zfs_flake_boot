@@ -57,4 +57,6 @@
    enableSSHSupport = true;
   };
 
+  services.drbd.enable = false;
+
 }
