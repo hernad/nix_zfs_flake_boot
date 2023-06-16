@@ -98,3 +98,13 @@ Inputs:
 └───nur: github:nix-community/NUR/6f1156df74875c31b154b584867a0c57196cdb9b
 </pre>
 
+
+# Show kernel config for this lenovo16 host
+
+https://lunnova.dev/articles/nixos-find-kernel-config/
+
+<pre>
+nix-shell -p nixVersions.nix_2_15 --run "bat $(nix build --print-out-paths --no-link .#nixosConfigurations.lenovo16.config.boot.kernelPackages.kernel.configfile)"
+</pre>
+
+
