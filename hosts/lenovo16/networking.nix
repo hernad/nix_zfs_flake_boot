@@ -32,6 +32,38 @@
         # "192.168.169.10"
         #]; 
 
+        wireguard.interfaces = {
+          wg0 = {
+            # Determines the IP address and subnet of the client's end of the tunnel interface.
+            ips = [ "192.168.245.11/24" ];
+            #listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+            privateKeyFile = "/home/hernad/.wireguard/wg0.private.key";
+            peers = [
+        
+               {
+                  # Public key of the server (not a file path).
+                  publicKey = "bMZFObF5tU94LqLKXhLsl+HOojtrCu6dAyc/sSTIxVk=";
+                  # Forward all the traffic via VPN.
+                  #allowedIPs = [ "0.0.0.0/0" ];
+                  # Or forward only particular subnets
+                  #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
+                  allowedIPs = [ "192.168.245.0/24" "192.168.168.0/24" "10.10.50.44/32" "192.168.90.0/24" ];
+              
+                  # Set this to the server IP and port.
+                  endpoint = "wg.bring.out.ba:31194"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+
+                  # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+                  persistentKeepalive = 25;
+              }
+            ];
+
+          };
+        };
+
+        extraHosts =
+        ''
+        192.168.168.252 zimbra.bring.out.ba redmine.bring.out.ba keycloak.bring.out.ba
+        '';
 
         networkmanager.enable = true;
         #networkmanager.enable = false;

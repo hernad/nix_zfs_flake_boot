@@ -208,6 +208,8 @@
         test-shell
         disnix
         graphviz
+        zoom-us
+        slack
   ];
 
     #environment.systemPackages = with pkgs; [

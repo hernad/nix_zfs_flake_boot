@@ -21,6 +21,8 @@
       "openssl-1.1.1u"
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # nix-info -m
   # - system: `"x86_64-linux"`
   # - host os: `Linux 6.2.13, NixOS, 23.05 (Stoat), 23.05.20230502.1a411f2`

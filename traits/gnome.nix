@@ -41,7 +41,10 @@
       gnome-screenshot
       gnome-control-center
       #gnome-terminal
+      pkgs.localsend
     ];
+
+    networking.firewall.allowedTCPPorts = [ 53317 ];
 
     services.gnome.gnome-keyring.enable = true;
 
