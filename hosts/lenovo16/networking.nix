@@ -64,77 +64,57 @@
           #
           #};
 
-          wgcgnat = {
+          #wgcgnat = {
+          #  ips = [ "10.100.0.2/24" ];
+          #  privateKeyFile = "/home/hernad/.wireguard/wg0.private.key";
+          #  # https://github.com/mochman/Bypass_CGNAT/blob/main/Wireguard%20Configs/Local%20Server/wg0.conf
+          #  postSetup = ''
+          #      ${pkgs.iptables}/bin/iptables -t nat -A PREROUTING -p tcp --dport 8123 -j DNAT --to-destination 192.168.168.150:8123
+          #      ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -p tcp --dport 8123 -j MASQUERADE
+          #  '';
+          #  postShutdown = ''
+          #      ${pkgs.iptables}/bin/iptables -t nat -D PREROUTING -p tcp --dport 8123 -j DNAT --to-destination 192.168.168.150:8123
+          #      ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -p tcp --dport 8123 -j MASQUERADE
+          #  '';
+          #  allowedIPsAsRoutes = false;
+          #  peers = [
+          #     {
+          #        publicKey = "sucaAlxoWAzJrzz7GTWv3niKqdeXOAPlNOJjh10883Q=";
+          #        #allowedIPs = [ "0.0.0.0/0" ];
+          #        allowedIPs = [ "10.100.0.1/32" ];
+          #        # ora1
+          #        endpoint = "193.123.37.206:55107";
+          #        # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+          #        persistentKeepalive = 25;
+          #    }
+          #  ];
+          #};
 
-            ips = [ "10.100.0.2/24" ];
-            privateKeyFile = "/home/hernad/.wireguard/wg0.private.key";
-
-            # https://github.com/mochman/Bypass_CGNAT/blob/main/Wireguard%20Configs/Local%20Server/wg0.conf
-
-
-            postSetup = ''
-                ${pkgs.iptables}/bin/iptables -t nat -A PREROUTING -p tcp --dport 8123 -j DNAT --to-destination 192.168.168.150:8123
-                ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -p tcp --dport 8123 -j MASQUERADE
-            '';
-
-            postShutdown = ''
-                ${pkgs.iptables}/bin/iptables -t nat -D PREROUTING -p tcp --dport 8123 -j DNAT --to-destination 192.168.168.150:8123
-                ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -p tcp --dport 8123 -j MASQUERADE
-            '';
-
-            allowedIPsAsRoutes = false;
-
-            peers = [
-        
-               {
-                  publicKey = "sucaAlxoWAzJrzz7GTWv3niKqdeXOAPlNOJjh10883Q=";
-                  #allowedIPs = [ "0.0.0.0/0" ];
-                  allowedIPs = [ "10.100.0.1/32" ];
-
-                  # ora1
-                  endpoint = "193.123.37.206:55107";
-
-                  # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-                  persistentKeepalive = 25;
-              }
-            ];
-            
-          };
-
-          wgcgnat2 = {
-
-            ips = [ "10.101.0.2/24" ];
-            privateKeyFile = "/home/hernad/.wireguard/wg0.private.key";
-
-            # https://github.com/mochman/Bypass_CGNAT/blob/main/Wireguard%20Configs/Local%20Server/wg0.conf
-
-            postSetup = ''
-                ${pkgs.iptables}/bin/iptables -t nat -A PREROUTING -p tcp --dport 8123 -j DNAT --to-destination 192.168.168.150:8123
-                ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -p tcp --dport 8123 -j MASQUERADE
-            '';
-
-            postShutdown = ''
-                ${pkgs.iptables}/bin/iptables -t nat -D PREROUTING -p tcp --dport 8123 -j DNAT --to-destination 192.168.168.150:8123
-                ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -p tcp --dport 8123 -j MASQUERADE
-            '';
-
-            allowedIPsAsRoutes = false;
-
-            peers = [
-        
-               {
-                  publicKey = "sucaAlxoWAzJrzz7GTWv3niKqdeXOAPlNOJjh10883Q=";
-                  allowedIPs = [ "10.101.0.1/32" ];
-                  
-                  # ora2
-                  endpoint = "144.21.37.169:55107";
-
-                  # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-                  persistentKeepalive = 25;
-              }
-            ];
-            
-          };
+          #wgcgnat2 = {
+          #  ips = [ "10.101.0.2/24" ];
+          #  privateKeyFile = "/home/hernad/.wireguard/wg0.private.key";
+          #  # https://github.com/mochman/Bypass_CGNAT/blob/main/Wireguard%20Configs/Local%20Server/wg0.conf
+          #  postSetup = ''
+          #      ${pkgs.iptables}/bin/iptables -t nat -A PREROUTING -p tcp --dport 8123 -j DNAT --to-destination 192.168.168.150:8123
+          #      ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -p tcp --dport 8123 -j MASQUERADE
+          #  '';
+          #  postShutdown = ''
+          #      ${pkgs.iptables}/bin/iptables -t nat -D PREROUTING -p tcp --dport 8123 -j DNAT --to-destination 192.168.168.150:8123
+          #      ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -p tcp --dport 8123 -j MASQUERADE
+          #  '';
+          #  allowedIPsAsRoutes = false;
+          #  peers = [
+          #     {
+          #        publicKey = "sucaAlxoWAzJrzz7GTWv3niKqdeXOAPlNOJjh10883Q=";
+          #        allowedIPs = [ "10.101.0.1/32" ];
+          #        
+          #        # ora2
+          #        endpoint = "144.21.37.169:55107";
+          #        # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+          #        persistentKeepalive = 25;
+          #    }
+          #  ];
+          #};
 
 
         };
