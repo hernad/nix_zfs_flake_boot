@@ -8,6 +8,7 @@
     time.timeZone = "Europe/Sarajevo";
     # Windows wants hardware clock in local time instead of UTC
     time.hardwareClockInLocalTime = true;
+    documentation.nixos.enable = false;
 
     i18n.defaultLocale = "en_US.UTF-8";
     i18n.supportedLocales = [ "all" ];
