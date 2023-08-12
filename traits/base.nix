@@ -75,7 +75,7 @@
 
         src = fetchurl {
             url = "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb";
-            sha256 = "sha256-tjyvf1qjzznPO7YPreebo/CoqAn3fR/dfKuwT/Bm7/c=";
+            sha256 = "sha256-YDh6YZCBa6aS2SlzZjOxNtPwGkcfcT5bu8/SssaZCA4=";
           };
 
 
@@ -305,6 +305,6 @@
     # this value at the release version of the first install of this system.
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "22.11"; # Did you read the comment?
+    system.stateVersion = "23.05"; # Did you read the comment?
   };
 }
