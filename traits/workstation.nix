@@ -17,7 +17,9 @@
       enable = true;
       antialias = true;
       hinting.enable = true;
-      hinting.style = "hintfull";
+      # A definition for option `fonts.fontconfig.hinting.style' is not of type `one of "none", "slight", "medium", "full"'. Definition values:
+
+      hinting.style = "full";
     };
 
     fonts.enableDefaultFonts = true;
