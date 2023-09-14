@@ -37,6 +37,8 @@
 
         firewall.allowedTCPPorts = [ 8123 ];
 
+        resolvconf.dnsExtensionMechanism = false;
+
         wireguard.interfaces = {
           wg0 = {
             # Determines the IP address and subnet of the client's end of the tunnel interface.
