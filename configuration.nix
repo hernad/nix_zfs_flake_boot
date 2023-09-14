@@ -49,6 +49,9 @@
   #};
   environment.systemPackages = with pkgs; [
       htop
+      traceroute
+      inetutils
+      sops
       postgresql
       #openvswitch
    ];

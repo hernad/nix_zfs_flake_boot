@@ -123,7 +123,7 @@
 
         extraHosts =
         ''
-        192.168.168.252 zimbra.bring.out.ba redmine.bring.out.ba keycloak.bring.out.ba
+        #192.168.168.252 zimbra.bring.out.ba redmine.bring.out.ba keycloak.bring.out.ba
         '';
 
         networkmanager.enable = true;
