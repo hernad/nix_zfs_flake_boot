@@ -54,10 +54,39 @@
                   #allowedIPs = [ "0.0.0.0/0" ];
                   # Or forward only particular subnets
                   #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
-                  allowedIPs = [ "192.168.245.0/24" "192.168.168.0/24" "10.10.50.44/32" "192.168.90.0/24" ];
+
+                  # https://www.procustodibus.com/blog/2021/03/wireguard-allowedips-calculator/
+
+                  # allowedIps: 192.168.245.0/24, 192.168.168.0/24, 10.10.50.44/32, 192.168.90.0/24
+                  # disallowdIps: 192.168.168.251
+
+                  # kada se nalazim u officesa mrezi, wg server je lan host
+                  #❯ traceroute 192.168.168.251
+                  #traceroute to 192.168.168.251 (192.168.168.251), 30 hops max, 60 byte packets
+                  # 1  _gateway (192.168.168.251)  1.006 ms  1.157 ms  1.329 ms
+                  #
+                  #❯ traceroute 192.168.168.252
+                  #traceroute to 192.168.168.252 (192.168.168.252), 30 hops max, 60 byte packets
+                  # 1  192.168.245.1 (192.168.245.1)  8.596 ms  8.556 ms  8.581 ms
+                  # 2  192.168.168.252 (192.168.168.252)  8.564 ms  8.549 ms  8.535 ms
+
+                  allowedIPs = [ 
+                    "10.10.50.44/32" 
+                    "192.168.90.0/24" 
+                    "192.168.168.0/25" 
+                    "192.168.168.128/26" 
+                    "192.168.168.192/27" 
+                    "192.168.168.224/28" 
+                    "192.168.168.240/29" 
+                    "192.168.168.248/31" 
+                    "192.168.168.250/32" 
+                    "192.168.168.252/30"
+                    "192.168.245.0/24" ];
               
                   # Set this to the server IP and port.
-                  endpoint = "wg.bring.out.ba:31194"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+                  endpoint = "192.168.168.251:31194"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+          
+
           
                   # Send keepalives every 25 seconds. Important to keep NAT tables alive.
                   persistentKeepalive = 25;
