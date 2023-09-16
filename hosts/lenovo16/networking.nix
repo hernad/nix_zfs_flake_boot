@@ -42,7 +42,7 @@
         wireguard.interfaces = {
           wg0 = {
             # Determines the IP address and subnet of the client's end of the tunnel interface.
-            ips = [ "192.168.245.11/24" ];
+            ips = [ "192.168.245.199/32" ];
             #listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
             privateKeyFile = "/home/hernad/.wireguard/wg0.private.key";
             peers = [
