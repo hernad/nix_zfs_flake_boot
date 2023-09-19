@@ -122,6 +122,8 @@ in {
       nix.settings.experimental-features = mkDefault [ "nix-command" "flakes" ];
       programs.git.enable = true;
       boot = {
+        extraModprobeConfig = "options kvm_amd nested=1";
+
         initrd.availableKernelModules = cfg.availableKernelModules;
         tmpOnTmpfs = mkDefault true;
         kernelPackages =

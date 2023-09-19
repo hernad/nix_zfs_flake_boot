@@ -16,6 +16,7 @@
   entry = {
     boot = {
       inherit system modules;
+   
       devNodes = "/dev/";
       bootDevices = [ 
         "nvme0n1" 
@@ -24,6 +25,7 @@
       hostId = "38bdc3d4";
       hostName = "lenovo16";
       availableKernelModules = [
+        "kvm_amd"
         "ahci" # for sata drive
         "nvme" # for nvme drive
         "uas" # for external usb drive

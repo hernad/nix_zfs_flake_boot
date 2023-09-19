@@ -63,6 +63,9 @@
    enableSSHSupport = true;
   };
 
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.splix ];
+
   services.drbd.enable = false;
 
 }
