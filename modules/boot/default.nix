@@ -125,7 +125,8 @@ in {
         extraModprobeConfig = "options kvm_amd nested=1";
 
         initrd.availableKernelModules = cfg.availableKernelModules;
-        tmpOnTmpfs = mkDefault true;
+        #tmpOnTmpfs = mkDefault true;
+        tmpOnTmpfs = false;
         kernelPackages =
           mkDefault config.boot.zfs.package.latestCompatibleLinuxPackages;
         supportedFilesystems = [ "zfs" ];

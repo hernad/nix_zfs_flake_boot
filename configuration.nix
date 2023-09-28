@@ -54,6 +54,7 @@
       sops
       postgresql
       #openvswitch
+      ipmitool
    ];
 
   services.pcscd.enable = true;
