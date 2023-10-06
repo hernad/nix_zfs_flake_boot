@@ -95,6 +95,33 @@
           
           };
 
+
+        wgrg = {
+            # Determines the IP address and subnet of the client's end of the tunnel interface.
+            ips = [ "192.168.200.16/32" ];
+            #listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+            privateKeyFile = "/home/hernad/.wireguard/wgrg.private.key";
+            peers = [
+          
+               {
+                  publicKey = "U/sx63bm1GixUzRY7sja5Zga4ugGLmXQFQGxgjtQwxo=";
+                
+                  allowedIPs = [ 
+                    "192.168.200.0/24" 
+                    "192.168.56.0/23" 
+                    "192.168.23.0/24" 
+                  ];
+              
+                  # Set this to the server IP and port.
+                  endpoint = "wg.rama-glas.com:31194"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+          
+                  # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+                  persistentKeepalive = 25;
+              }
+            ];
+          
+          };
+
           #wgcgnat = {
           #  ips = [ "10.100.0.2/24" ];
           #  privateKeyFile = "/home/hernad/.wireguard/wg0.private.key";
