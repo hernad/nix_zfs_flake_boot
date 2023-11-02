@@ -35,7 +35,7 @@
         # "192.168.169.10"
         #]; 
 
-        firewall.allowedTCPPorts = [ 8123 ];
+        firewall.allowedTCPPorts = [ 8123 5432 ];
 
         resolvconf.dnsExtensionMechanism = false;
 
