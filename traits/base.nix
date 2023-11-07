@@ -15,6 +15,8 @@
 
     # https://stackoverflow.com/questions/54811067/how-can-i-install-extension-of-vscode
 
+  services.rpcbind.enable = true; # needed for NFS
+
   environment.systemPackages = with pkgs;
     let
       inherit (pkgs) fetchurl;
@@ -68,100 +70,100 @@
       };
 
       # https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/instant-messengers/viber/default.nix
-
-      
-      viberFetch = viber.overrideAttrs( attrOld: {
-        version = "16.1.0.999";
-
-        src = fetchurl {
-            url = "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb";
-            sha256 = "sha256-YDh6YZCBa6aS2SlzZjOxNtPwGkcfcT5bu8/SssaZCA4=";
-          };
-
-
-
-        installPhase = ''
-            dpkg-deb -x $src $out
-            mkdir -p $out/bin
-            # Soothe nix-build "suspicions"
-            chmod -R g-w $out
-            for file in $(find $out -type f \( -perm /0111 -o -name \*.so\* \) ); do
-              patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" "$file" || true
-              patchelf --set-rpath $libPath:$out/opt/viber/lib $file || true
-            done
-            # qt.conf is not working, so override everything using environment variables
-            wrapProgram $out/opt/viber/Viber \
-              --set QT_PLUGIN_PATH "$out/opt/viber/plugins" \
-              --set QT_XKB_CONFIG_ROOT "${xorg.xkeyboardconfig}/share/X11/xkb" \
-              --set QTCOMPOSE "${xorg.libX11.out}/share/X11/locale" \
-              --set QML2_IMPORT_PATH "$out/opt/viber/qml" \
-              --set QT_STYLE_OVERRIDE ""
-            ln -s $out/opt/viber/Viber $out/bin/viber
-            mv $out/usr/share $out/share
-            rm -rf $out/usr
-            # Fix the desktop link
-            substituteInPlace $out/share/applications/viber.desktop \
-              --replace /opt/viber/Viber $out/opt/viber/Viber \
-              --replace /usr/share/ $out/share/
-          '';
-
-        libPath = lib.makeLibraryPath [
-              alsa-lib
-              cups
-              curl
-              dbus
-              expat
-              fontconfig
-              freetype
-              glib
-              gst_all_1.gst-plugins-base
-              gst_all_1.gst-plugins-bad
-              gst_all_1.gstreamer
-              harfbuzz
-              libopus
-              libcap
-              libGLU libGL
-              libpulseaudio
-              libxkbcommon
-              libxml2
-              libxslt
-              libwebp
-              snappy
-              xorg.libxshmfence
-              lcms2
-              xorg.libxkbfile
-              zstd
-              libkrb5
-              brotli
-              nspr
-              nss
-              openssl_1_1
-              stdenv.cc.cc
-              systemd
-              wayland
-              zlib
-              xorg.libICE
-              xorg.libSM
-              xorg.libX11
-              xorg.libxcb
-              xorg.libXcomposite
-              xorg.libXcursor
-              xorg.libXdamage
-              xorg.libXext
-              xorg.libXfixes
-              xorg.libXi
-              xorg.libXrandr
-              xorg.libXrender
-              xorg.libXScrnSaver
-              xorg.libXtst
-              xorg.xcbutilimage
-              xorg.xcbutilkeysyms
-              xorg.xcbutilrenderutil
-              xorg.xcbutilwm
-          ];  
-      });
-
-    in [
+    
+#      viberFetch = viber.overrideAttrs( attrOld: {
+#        version = "16.1.0.999";
+#
+#        src = fetchurl {
+#            url = "https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb";
+#            sha256 = "sha256-YDh6YZCBa6aS2SlzZjOxNtPwGkcfcT5bu8/SssaZCA4=";
+#          };
+#
+#
+#
+#        installPhase = ''
+#            dpkg-deb -x $src $out
+#            mkdir -p $out/bin
+#            # Soothe nix-build "suspicions"
+#            chmod -R g-w $out
+#            for file in $(find $out -type f \( -perm /0111 -o -name \*.so\* \) ); do
+#              patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" "$file" || true
+#              patchelf --set-rpath $libPath:$out/opt/viber/lib $file || true
+#            done
+#            # qt.conf is not working, so override everything using environment variables
+#            wrapProgram $out/opt/viber/Viber \
+#              --set QT_PLUGIN_PATH "$out/opt/viber/plugins" \
+#              --set QT_XKB_CONFIG_ROOT "${xorg.xkeyboardconfig}/share/X11/xkb" \
+#              --set QTCOMPOSE "${xorg.libX11.out}/share/X11/locale" \
+#              --set QML2_IMPORT_PATH "$out/opt/viber/qml" \
+#              --set QT_STYLE_OVERRIDE ""
+#            ln -s $out/opt/viber/Viber $out/bin/viber
+#            mv $out/usr/share $out/share
+#            rm -rf $out/usr
+#            # Fix the desktop link
+#            substituteInPlace $out/share/applications/viber.desktop \
+#              --replace /opt/viber/Viber $out/opt/viber/Viber \
+#              --replace /usr/share/ $out/share/
+#          '';
+#
+#        libPath = lib.makeLibraryPath [
+#              alsa-lib
+#              cups
+#              curl
+#              dbus
+#              expat
+#              fontconfig
+#              freetype
+#              glib
+#              gst_all_1.gst-plugins-base
+#              gst_all_1.gst-plugins-bad
+#              gst_all_1.gstreamer
+#              harfbuzz
+#              libopus
+#              libcap
+#              libGLU libGL
+#              libpulseaudio
+#              libxkbcommon
+#              libxml2
+#              libxslt
+#              libwebp
+#              snappy
+#              xorg.libxshmfence
+#              lcms2
+#              xorg.libxkbfile
+#              zstd
+#              libkrb5
+#              brotli
+#              nspr
+#              nss
+#              openssl_1_1
+#              stdenv.cc.cc
+#              systemd
+#              wayland
+#              zlib
+#              xorg.libICE
+#              xorg.libSM
+#              xorg.libX11
+#              xorg.libxcb
+#              xorg.libXcomposite
+#              xorg.libXcursor
+#              xorg.libXdamage
+#              xorg.libXext
+#              xorg.libXfixes
+#              xorg.libXi
+#              xorg.libXrandr
+#              xorg.libXrender
+#              xorg.libXScrnSaver
+#              xorg.libXtst
+#              xorg.xcbutilimage
+#              xorg.xcbutilkeysyms
+#              xorg.xcbutilrenderutil
+#              xorg.xcbutilwm
+#          ];  
+#      });
+#
+    in 
+    [
         vim
         remmina
         patchelf
@@ -203,7 +205,7 @@
         #viber
         #appimage-run
         xorg.xkbcomp
-        viberFetch
+        #viberFetch
         nixos-generators
         parprouted
         test-shell
